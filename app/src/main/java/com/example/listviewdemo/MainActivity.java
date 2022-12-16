@@ -39,15 +39,20 @@ public class MainActivity extends AppCompatActivity {
 //                Log.i("Person Tapped", myfamily.get(i));
 //            }
 //        });
-        ListView myListView = (ListView)findViewById(R.id.myListView);
+        ListView friendListView = (ListView)findViewById(R.id.friendListView);
 
-        ArrayList<String> myfriends = new ArrayList<String>(asList("Kajal", "Meemansa", "khushi", "Venna", "Sanya"));
+        final ArrayList<String> myfriends = new ArrayList<String>();
+        myfriends.add("Kajal");
+        myfriends.add("Sanya");
+        myfriends.add("Meemansa");
+        myfriends.add("Khushi");
+        myfriends.add("Veena");
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, myfriends);
-        myListView.setAdapter(arrayAdapter);
-        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        friendListView.setAdapter(arrayAdapter);
+        friendListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText("Hello" + myfriends.get(i), Toast.LENGTH_LONG).show();
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Toast.makeText(getApplicationContext(),"Hello " + myfriends.get(position), Toast.LENGTH_LONG).show();
             }
         });
     }
